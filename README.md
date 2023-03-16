@@ -13,3 +13,11 @@ released GPT-4 which makes the $20/month a no-brainer again :joy:
 ```
 pip install flask openai python-dotenv
 ```
+
+## License
+
+This project is licensed under the [permissive][per] [ISC license][lic]. You
+can find the license information in this project in the `LICENSE` file.
+
+[per]: https://en.wikipedia.org/wiki/Permissive_free_software_licence
+[lic]: https://en.wikipedia.org/wiki/ISC_license
