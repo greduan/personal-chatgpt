@@ -1,7 +1,12 @@
 <turbo-frame id="conversation_list">
   <ul>
-    <li>Conversation 1</li>
-    <li>Conversation 2</li>
+    {% for convo in conversations %}
+      <li {% if conversation_id == convo['id'] %}style="font-weight: bold;"{% endif %}>
+        <a href="/conversation/{{ convo['id'] }}" target="_top">
+          {{ convo['summary'] }}
+        </a>
+      </li>
+    {% endfor %}
   </ul>
-  <a>New conversation!</a>
+  <a href="/conversation/new">New conversation!</a>
 </turbo-frame>

@@ -16,11 +16,11 @@
 <body>
   <nav>
     <h1>Conversations</h1>
-    <turbo-frame id="conversation_list" src="/conversations.turbo"></turbo-frame>
+    <turbo-frame id="conversation_list" src="/conversations.turbo?conversation_id={{ conversation_id }}"></turbo-frame>
   </nav>
   <hr />
   <main>
-    <turbo-frame id="conversation" src="/conversation/new.turbo"></turbo-frame>
+    <turbo-frame id="conversation" src="/conversation/{{ conversation_id }}.turbo"></turbo-frame>
   </main>
 </body>
 </html>

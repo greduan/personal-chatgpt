@@ -1,18 +1,14 @@
 <turbo-frame id="conversation">
   {% for message in conversation.messages %}
     {% if message.role == 'user' %}
-      <p style="background-color: lightblue">
-        {{ message.content }}
-      </p>
+      <p style="background-color: lightblue; white-space: pre-wrap">{{ message.content }}</p>
     {% else %}
-      <p style="background-color: lightpink">
-        {{ message.content }}
-      </p>
+      <p style="background-color: lightpink; white-space: pre-wrap">{{ message.content }}</p>
     {% endif %}
   {% endfor %}
 
   <form method="post" action="/chat">
-    <input type="hidden" name="id" value="{{ conversation.id }}" />
+    <input type="hidden" name="conversation_id" value="{{ conversation.id }}" />
     <input name="content" type="text" required />
     <input type="submit" value="Send" />
   </form>
