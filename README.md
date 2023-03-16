@@ -6,6 +6,8 @@ released GPT-4 which makes the $20/month a no-brainer again :joy:
 
 [hotwired]: https://hotwired.dev
 
+![CleanShot 2023-03-16 at 21 36 15](https://user-images.githubusercontent.com/2314074/225746798-4604898c-104a-49fb-8536-420aac1f0fb0.png)
+
 ## Setup
 
 (Using a virtualenv is recommended.)
