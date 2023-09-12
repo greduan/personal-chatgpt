@@ -62,7 +62,7 @@ def chat():
             'role': 'assistant',
             'content': get_conversation_chatcompletion(messages),
         }
-        messages = messages + [completion_message]
+        messages += [completion_message]
         conversation = {
             'summary': get_chatcompletion('Summarize the following prompt into no more than 10 words.', request.form['content']),
             'messages': messages,
@@ -78,7 +78,7 @@ def chat():
             'role': 'assistant',
             'content': get_conversation_chatcompletion(messages + new_messages),
         }
-        new_messages = new_messages + [completion_message]
+        new_messages += [completion_message]
 
     conn = get_db_conn()
     c = conn.cursor()

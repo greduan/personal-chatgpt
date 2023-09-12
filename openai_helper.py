@@ -12,8 +12,7 @@ def get_chatcompletion(frame: str, prompt: str):
             {'role': 'user', 'content': prompt},
         ],
     )
-    response_content = response.choices[0].message.content
-    return response_content
+    return response.choices[0].message.content
 
 
 def get_conversation_chatcompletion(messages):
@@ -21,5 +20,4 @@ def get_conversation_chatcompletion(messages):
         model='gpt-3.5-turbo',
         messages=list(messages),
     )
-    response_content = response.choices[0].message.content
-    return response_content
+    return response.choices[0].message.content

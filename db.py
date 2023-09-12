@@ -4,8 +4,7 @@ from sqlite3 import Cursor
 
 
 def get_db_conn():
-    conn = sqlite3.connect(get_db_path())
-    return conn
+    return sqlite3.connect(get_db_path())
 
 
 def get_db_path():
@@ -51,7 +50,10 @@ def create_tables():
 def fetch_messages(conversation_id: int):
     conn = sqlite3.connect(get_db_path())
     c = conn.cursor()
-    c.execute('SELECT * FROM messages WHERE conversation_id = ? ORDER BY created_at ASC', (int(conversation_id)))
+    c.execute(
+        'SELECT * FROM messages WHERE conversation_id = ? ORDER BY created_at ASC',
+        conversation_id,
+    )
     messages = c.fetchall()
     conn.close()
     return messages
@@ -91,13 +93,10 @@ def fetch_conversation_next_id():
     c = conn.cursor()
     c.execute('SELECT max(id) FROM conversations')
     result = c.fetchone()[0]
-    if result is None:
-        return 1
-    else:
-        return result + 1
+    return 1 if result is None else result + 1
 
 def add_conversation(c: Cursor, summary: str):
-    c.execute('INSERT INTO conversations (summary) VALUES (?)', (str(summary),))
+    c.execute('INSERT INTO conversations (summary) VALUES (?)', (summary, ))
 
 
 def add_message(c: Cursor, conversation_id, role: str, content: str):
